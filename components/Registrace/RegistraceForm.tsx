@@ -1,4 +1,4 @@
-// app/booking/page.tsx (nebo RegistrationForm.tsx - název souboru je na vás)
+// app/booking/page.tsx
 'use client';
 
 import { useState, useEffect, useRef } from "react";
@@ -7,11 +7,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './Calendar.css'; // Ujisti se, že tento CSS soubor existuje a obsahuje potřebné styly pro kalendář
-import { db } from '../../firebase'; // **DŮLEŽITÉ: ZKONTROLUJ TUTO CESTU!**
+import './Calendar.css';
+import { db } from '../../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { toast, Toaster } from "react-hot-toast";
 import emailjs from '@emailjs/browser';
+
+// Přidejte české locale pro kalendář
+import { cs } from 'date-fns/locale';
+import { registerLocale } from 'react-datepicker';
+registerLocale('cs', cs);
 
 // Typy pro data
 type ScheduleRow = {
@@ -45,7 +50,7 @@ const schedule: ScheduleRow[] = [
   { time: '19:00', pondeli: '', utery: 'Pokročilí', streda: '', ctvrtek: '', patek: '', sobota: '', nedele: '' }
 ];
 
-// Barvy tréninků (Tailwind CSS třídy)
+// Barvy tréninků
 const trainingColors: TrainingColors = {
   'Kickbox': 'lg:border-l-4 border-l-2 border-green-500 pl-2 w-32',
   'Thaibox': 'lg:border-l-4 border-l-2 border-red-500 pl-2 w-32',
@@ -78,13 +83,10 @@ const cleanText = (text: string) => {
   return text.replace(/[^\w\sá-žÁ-Ž]/gi, '');
 };
 
-// **NOVÁ FUNKCE: Standardizované formátování data a času**
-// Zajistí formát "D.M.RRRR HH:MM - Sport" (bez mezer po tečkách)
 const formatTrainingTimeForFirebase = (date: Date, time: string, sport: string): string => {
     const day = date.getDate();
-    const month = date.getMonth() + 1; // Měsíce jsou 0-11
+    const month = date.getMonth() + 1;
     const year = date.getFullYear();
-    // Spojíme vše do přesného formátu
     return `${day}.${month}.${year} ${time} - ${sport}`;
 };
 
@@ -128,6 +130,7 @@ const RegistrationForm = ({ texts }: Props) => {
   const resetForm = () => {
     setFormData(initialFormData);
     setSelectedTraining(null);
+    console.log(selectedTraining)
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -140,7 +143,7 @@ const RegistrationForm = ({ texts }: Props) => {
         email: formData.email,
         phone: cleanText(formData.phone),
         sport: formData.sport,
-        training_time: formData.training_time // Toto už by mělo být správně formátováno
+        training_time: formData.training_time
       };
 
       if (!db) {
@@ -213,10 +216,8 @@ const RegistrationForm = ({ texts }: Props) => {
       .map((row) => ({ time: row.time, sport: row[dayOfWeek as keyof ScheduleRow] }));
 
     if (trainingsForSelectedDay.length > 0) {
-      // Předvybrat první dostupný trénink
       const firstTraining = trainingsForSelectedDay[0];
       setSelectedTraining(`${firstTraining.time} - ${firstTraining.sport}`);
-      // **Zde použijeme novou funkci pro formátování:**
       setFormData({ 
         ...formData, 
         training_time: formatTrainingTimeForFirebase(date, firstTraining.time, firstTraining.sport) 
@@ -229,7 +230,6 @@ const RegistrationForm = ({ texts }: Props) => {
 
   const handleTrainingSelect = (time: string, sport: string) => {
     setSelectedTraining(`${time} - ${sport}`);
-    // **Zde použijeme novou funkci pro formátování:**
     setFormData({ 
       ...formData, 
       training_time: formatTrainingTimeForFirebase(selectedDate, time, sport) 
@@ -357,12 +357,12 @@ const RegistrationForm = ({ texts }: Props) => {
             {showCalendar && (
               <div className="absolute right-[20%] top-[45px] lg:right-[110%] lg:-top-72 z-50 bg-[#00060E] rounded-xl">
                 <Calendar
-                  onChange={handleDateChange as any}
+                  onChange={handleDateChange}
                   value={selectedDate}
                   className="react-calendar"
                   tileClassName={tileClassName}
                   showNeighboringMonth={false}
-                  formatDay={(locale, date) => date.getDate().toString()}
+                  locale="cs"
                 />
                 {selectedDate && (
                   <div className="mt-4 p-2">
