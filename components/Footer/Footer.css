@@ -1,0 +1,32 @@
+
+.blursses{
+    width: 330px;
+    height: 260px;
+    left: 4.5%;
+    top: 2%;
+    opacity: 1;   
+    z-index: 20;
+    background-color: #A05A96;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(282px);
+  z-index: 3;
+
+}
+@media(max-width: 1000px){
+  .blursses{
+    width: 230px;
+    height: 200px;
+    left: 4.5%;
+    top: 2%;
+    opacity: 1;   
+    z-index: 20;
+    background-color: #A05A96;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(202px);
+  z-index: 3;
+  display: none;
+
+}
+}

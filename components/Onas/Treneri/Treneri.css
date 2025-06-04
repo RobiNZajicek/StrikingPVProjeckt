@@ -1,0 +1,39 @@
+.TreninkBlurosss{
+    width: 450px;
+    height: 340px;
+    left:65%;
+    bottom:  0%;
+    opacity: 1;   
+    z-index: 20;
+    background-color: #A05A96;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(280px);
+  z-index: 1;
+   }
+   .TreninkBlurosssTop{
+    width: 450px;
+    height: 340px;
+    left:5%;
+    top:  0%;
+    opacity: 1;   
+    z-index: 20;
+    background-color: #A05A96;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(280px);
+  z-index: 1;
+   }
+   @media(max-width:768px){
+    .TreninkBlurosss{
+      width: 150px;
+      height: 150px;
+      filter: blur(150px);
+    }
+    .TreninkBlurosssTop{
+      width: 150px;
+      height: 150px;
+      filter: blur(150px);
+    }
+
+   }

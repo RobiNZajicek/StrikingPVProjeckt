@@ -1,0 +1,39 @@
+.FaqRight {
+  position: absolute;
+  width: 400px;
+  height: 350px;
+  right: 5%;
+  top: 20%;
+  background-color: #A05A96;
+  filter: blur(250px);
+  border-radius: 50%;
+  z-index: -1; /* Moves the blur BEHIND the FAQ */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .FaqRight {
+      width: 300px;
+      height: 250px;
+      top: 25%;
+      display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .FaqRight {
+      width: 250px;
+      height: 200px;
+      top: 30%;
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .FaqRight {
+      width: 200px;
+      height: 150px;
+      top: 35%;
+      display: none;
+  }
+}

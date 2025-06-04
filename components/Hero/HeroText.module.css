@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+.wrapper {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    height: 87vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+}
+
+.wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00060e;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.heroLeft, .heroRight {
+    width: 450px;
+    height: 380px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #A05A96;
+    filter: blur(280px);
+    z-index: 3;
+}
+
+.heroLeft {
+    left: 0;
+    bottom: 2%;
+}
+
+.heroRight {
+    right: 0;
+    top: 2%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .heroLeft, .heroRight {
+        width: 350px;
+        height: 300px;
+        filter: blur(200px);
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroLeft, .heroRight {
+        width: 250px;
+        height: 200px;
+        filter: blur(150px);
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroLeft, .heroRight {
+        width: 180px;
+        height: 150px;
+        filter: blur(100px);
+        display: none;
+    }
+}
