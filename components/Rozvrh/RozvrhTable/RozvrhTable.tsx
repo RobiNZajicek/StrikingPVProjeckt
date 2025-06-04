@@ -229,7 +229,7 @@
               </div>
               <div className="flex justify-center gap-4">
                 <Link
-                  href='https://prague-striking.dtap.cz/register/'
+                  href='/Registrace'
                   className="mt-8 flex justify-center items-center font-black border-2 bg-white text-primary w-32 p-2 rounded-xl"
                 >
                   Objednat se

@@ -60,7 +60,7 @@ const PricingComponent = ({ data }) => {
                 </li>
               </ul>
               <Link
-                href="https://prague-striking.dtap.cz/register/"
+                href="/Registrace"
                 className="mt-4 xl:mt-6 mb-2 flex z-50 cursor-pointer justify-center items-center w-full py-3 text-lg font-black font-orbion bg-primary rounded-xl hover:bg-opacity-80 transition"
               >
                 Rezervovat
@@ -95,7 +95,7 @@ const PricingComponent = ({ data }) => {
                 </li>
               </ul>
               <Link
-                href="https://prague-striking.dtap.cz/register/"
+                href="/Registrace"
                 className="mt-4 xl:mt-6 mb-2 flex z-50 cursor-pointer justify-center items-center w-full py-3 text-lg font-black font-orbion bg-primary rounded-xl hover:bg-opacity-80 transition"
               >
                 Rezervovat
