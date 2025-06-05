@@ -1,0 +1,119 @@
+.react-calendar {
+  background-color: #00060E; /* Dark background */
+  color: white; /* White text */
+  border: 1px solid #1A1A1A; /* Dark border */
+  border-radius: 8px; /* Rounded corners */
+  width: 225px;
+  height: 300px;
+  font-family: sans-serif; /* Match your font */
+  font-size: 13px;
+}
+
+.calendar-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: #00060E;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.react-calendar__navigation button {
+  background-color: #1A1A1A; /* Dark navigation buttons */
+  color: white; /* White text */
+  border: none; /* Remove borders */
+/* Rounded corners */
+  font-size: 15px; /* Adjust font size */
+  
+}
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+} 
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #2A2A2A; /* Hover state */
+
+}
+.react-calendar__navigation__label{
+  font-size: 4px;
+}
+.react-calendar__navigation__arrow .react-calendar__navigation__next-button{
+  width: 10%;
+}
+.react-calendar span{
+  font-size: 10px;
+}
+
+.react-calendar__tile {
+  background-color: #00060E; /* Dark tiles */
+  color: white; /* White text */
+  border: none; /* Remove borders */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #2A2A2A; /* Hover state */
+}
+
+.react-calendar__tile--active {
+  background-color: #1A1A1A; /* Active tile */
+  color: white; /* White text */
+}
+
+.react-calendar__tile--now {
+  background-color: #1A1A1A; /* Current day */
+  color: white; /* White text */
+}
+
+.has-training {
+
+  color: #ffa6f5;
+  
+  border-radius: 4px; /* Rounded corners */
+}
+/* Odstranění teček u všech dnů (čísel 1, 2, 3, ...) */
+
+/* Odstranění teček za čísly dnů (1., 2., 3., ...) */
+.react-calendar__tile abbr::after {
+  content: "" !important; /* Odstraní tečku */
+}
+@media (max-width: 1024px) {
+  .react-calendar {
+    width: 222px;
+    height: 175px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+  .react-calendar button{
+    width: -20px;
+  }
+  .react-calendar__tile{
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+    padding: 0;
+    background-color: black;
+  }
+  .react-calendar span{
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  .react-calendar__navigation {
+    
+    font-size: 12px; 
+    height: 30px;
+    width: 175px;
+  
+  }
+  .react-calendar__navigation button{
+    background: #00060E;
+    border-radius: 3px; 
+  }
+}
