@@ -13,7 +13,7 @@ import { registerLocale } from 'react-datepicker';
 import './Calendar.css'
 
 // Import typů a konstant z nově vytvořených utility souborů
-import { ScheduleRow, TrainingColors, schedule, trainingColors } from '../utils/constants';
+import { ScheduleRow, schedule, trainingColors } from '../utils/constants';
 import { getDayOfWeek } from '../utils/helpers';
 
 // Registrace české locale pro kalendář

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { type FC } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Toaster } from "react-hot-toast";
 
@@ -32,14 +31,7 @@ const RegistraceForm: FC<RegistraceFormProps> = ({ texts }) => {
     : `${process.env.NEXT_PUBLIC_STRAPI_URL}${texts?.obrazekPozadi?.url}`;
 
   // Animace (pokud jsou potřeba, jinak se dají zjednodušit)
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
 
-  const staggerChildren = {
-    visible: { transition: { staggerChildren: 0.2 } },
-  };
 
   return (
     <div className="relative flex flex-col lg:flex-row items-center lg:items-start text-white pt-12 pb-44 mb-6 x-8 md:px-2 lg:px-2 xl:px-2 2xl:px-16 mx-auto rounded-xl justify-center overflow-hidden bg-black font-sans">

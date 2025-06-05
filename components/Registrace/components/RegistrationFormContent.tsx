@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { db } from '../../../firebase'; // Zkontroluj cestu k tvé Firebase instanci (např. Striking/firebase.ts)
 import { addDoc, collection } from 'firebase/firestore';
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import emailjs from '@emailjs/browser';
 
 // Import komponenty kalendáře
