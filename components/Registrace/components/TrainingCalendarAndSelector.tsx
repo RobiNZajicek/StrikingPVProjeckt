@@ -115,7 +115,7 @@ const TrainingCalendarAndSelector: FC<TrainingCalendarAndSelectorProps> = ({
       {showCalendar && (
         <div className="absolute right-[20%] top-[45px] lg:right-[110%] lg:-top-72 z-50 bg-[#00060E] rounded-xl">
           <Calendar
-            onChange={handleDateChange as any} // 'any' pro zjednodušení, typování FullCalendar je komplexní
+            onChange={handleDateChange } 
             value={selectedDate}
             className="react-calendar"
             tileClassName={tileClassName}
